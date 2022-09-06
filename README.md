@@ -17,5 +17,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Delete items created.
 - Clear All completed Items.
 - Dark Mode/ Light Mode(Theme change)
+- Responsive UI( Mobile and Desktop)
 
 
