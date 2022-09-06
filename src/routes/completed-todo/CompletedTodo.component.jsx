@@ -6,18 +6,23 @@ const CompletedTodoItems = () => {
     const { todoItems, displayCompletedTodoItems } = useContext(TodoListContext)
     const todoList = displayCompletedTodoItems()
     return(
-        todoList.map( activeItem => (
-            todoItems.map((item,index) => {
-                return(
-                    activeItem.id === item.id && 
-                    <TodoListItem 
-                        key={activeItem.id}
-                        todoItem={activeItem}
-                        index={index}
-                    />
-                )
-            })
-        ))
+
+        <div className="todo-list">
+            { todoList.map( activeItem => (
+                 todoItems.map((item,index) => {
+                     return(
+                         activeItem.id === item.id && 
+                         <TodoListItem 
+                             key={activeItem.id}
+                             todoItem={activeItem}
+                             index={index}
+                         />
+                     )
+                 })
+             ))}
+        </div>
+
+
     )
 
 }

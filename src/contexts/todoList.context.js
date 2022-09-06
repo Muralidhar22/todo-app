@@ -127,10 +127,22 @@ const updateItem = (newItemValue, itemToUpdate, todoItems) => {
   )
 }
 
+const updateAllItemsCheckbox = (checkboxValue, todoItems) => {
+  return (
+    todoItems.map( item => (
+      {
+        ...item,
+        isDone: checkboxValue
+      }
+    ))
+  )
+}
+
 export const TodoListProvider = ({ children }) => {
     const [ todoItems, dispatch ] = useReducer(todoListReducer,INITIAL_STATE)
 
     useEffect(() => {
+      console.log("Use effect running inside todoContext")
       localStorage.setItem("todolist",JSON.stringify(todoItems))
     },[todoItems])
 
@@ -173,6 +185,11 @@ export const TodoListProvider = ({ children }) => {
       dispatch({ type: TODO_LIST_ACTION_TYPES.MODIFY_TODO_LIST, payload: newTodoList })
     }
 
+    const toggleAllCheckBox = (checkboxValue) => {
+      const newTodoList = updateAllItemsCheckbox(checkboxValue, todoItems)
+      dispatch({ type: TODO_LIST_ACTION_TYPES.MODIFY_TODO_LIST, payload: newTodoList })
+    }
+
     const value = {
         todoItems,
         displayActiveTodoItems,
@@ -183,6 +200,7 @@ export const TodoListProvider = ({ children }) => {
         toggleCheckTodoItem,
         deleteTodoItem,
         updateTodoItem,
+        toggleAllCheckBox,
     }
 
     return <TodoListContext.Provider value={value}>{children}</TodoListContext.Provider>

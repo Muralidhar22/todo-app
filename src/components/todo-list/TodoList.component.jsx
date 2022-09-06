@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 
 import { TodoListContext } from "../../contexts/todoList.context";
 import TodoListItem from "../todo-list-item/TodoListItem.component";
@@ -7,8 +7,7 @@ function TodoList(){
   const { todoItems } = useContext(TodoListContext)
   
         return(
-          <>
-            <div className="todo-list-container">
+            <div className="todo-list">
               {todoItems &&
                todoItems.map( (todoItem, index) => {
                 return (
@@ -21,7 +20,6 @@ function TodoList(){
               })
               }
             </div>
-          </>
         )
 
     }

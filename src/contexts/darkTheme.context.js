@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const DarkThemeContext = createContext({
     darkTheme: true,
@@ -11,6 +11,15 @@ export const DarkThemeProvider = ({ children }) => {
         darkTheme,
         setDarkTheme
     }
+    
+    useEffect(() => {
+        if(!darkTheme){
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+        else{
+            document.documentElement.removeAttribute("data-theme")
+        }
+    }, [darkTheme])
 
     return <DarkThemeContext.Provider value={value}>{children}</DarkThemeContext.Provider>
 } 

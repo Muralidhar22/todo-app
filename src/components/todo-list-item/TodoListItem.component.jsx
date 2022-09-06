@@ -2,24 +2,28 @@ import { useContext, useState } from "react"
 
 import { TodoListContext } from "../../contexts/todoList.context"
 import DeleteTodo from "../delete-todo/DeleteTodo.component"
-import { ReactComponent as CheckBox } from "../../images/icon-check.svg"
 import EditTodo from "../edit-todo/EditTodo.component"
 import TodoUpdateItemModal from "../todo-update-item-modal/TodoUpdateItemModal.component"
 
+import styles from "./TodoListItem.styles.module.css"
+
 const TodoListItem = ({ todoItem, index }) => {
     const { reOrderList, toggleCheckTodoItem } = useContext(TodoListContext)
-    const [checked, setChecked] = useState(todoItem.isDone)
     const [ todoItemUpdating, setTodoItemUpdating ] = useState(false)
 
     const dragStartEventHandler = (e) => {
         const sourceIndex = e.target.dataset.index
+        console.log("drag start")
         e.dataTransfer.setData('text/plain',sourceIndex)
     }
     const dropEventHandler = (e) => {
         e.preventDefault();
         const sourceIndex = e.dataTransfer.getData('text/plain')
         const targetIndex = e.target.dataset.index
-        if(targetIndex){
+        console.log(e)
+        console.log("targetindex:", targetIndex,"sourceindex:",sourceIndex)
+        if(targetIndex && targetIndex !== sourceIndex){
+            console.log("target index",targetIndex)
             reOrderList(Number(sourceIndex), Number(targetIndex))
         }
     }
@@ -29,25 +33,32 @@ const TodoListItem = ({ todoItem, index }) => {
     }
 
     const onCheckBoxChangeHandler = (e) => {
-        setChecked(!checked)
         toggleCheckTodoItem(todoItem)
     }
     
     return(
-        <div onDrop={dropEventHandler} onDragOver={dragOverEventHandler} className="todo-item-container"> 
+        <div onDrop={dropEventHandler} 
+             onDragOver={dragOverEventHandler} 
+             className={`${styles.todoItemContainer}`}
+             data-index={index}> 
            
-                <label htmlFor="check-box">
-                    <input type="checkbox" checked={checked} data-item-id={todoItem.id} onChange={onCheckBoxChangeHandler} />
+            <div
+              draggable={true}
+              onDragStart={dragStartEventHandler}
+              data-index={index}>
+              
+                <label 
+                htmlFor={`todo-check-box-${index}`}
+                className={`${styles.todoText} ${styles.todoCheckbox}`}
+                data-index={index}> 
+                    <input type="checkbox" id={`todo-check-box-${index}`} checked={todoItem.isDone} data-item-id={todoItem.id} onChange={onCheckBoxChangeHandler} />
+                   <span className={`${styles.checkboxInputLabel}`}
+                    data-index={index}>
+                        {todoItem.value}
+                    </span>
                 </label>
-                <CheckBox />
-                <div
-                draggable={true}
-                onDragStart={dragStartEventHandler} 
-                data-index={index}
-                className="todo-item"
-                data-is-completed={todoItem.isDone}>
-                    {todoItem.value}
-                </div>
+            </div>
+                
                 <DeleteTodo
                     todoItem={todoItem} 
                 />

@@ -1,4 +1,4 @@
-import { ReactComponent as EditIcon } from "../../images/icon-edit.svg"
+import { ReactComponent as EditIcon } from "../../images/icon-edit.svg";
 
 const EditTodo = ({ setTodoItemUpdating }) => {
     const editTodoEventHandler = () => {

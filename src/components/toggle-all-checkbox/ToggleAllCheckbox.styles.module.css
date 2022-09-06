@@ -1,0 +1,12 @@
+.allLabel {
+    color: var(--clr-todo-text);
+    display: flex;
+    gap: 1rem;
+    margin-left: 70%;
+    margin-top: 1rem;
+    padding: 1rem;
+    align-items: center;
+    background: var(--clr-todo-bg);
+    width: fit-content;
+    border-radius: .5rem;
+}

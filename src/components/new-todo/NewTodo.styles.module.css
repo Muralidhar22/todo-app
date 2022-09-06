@@ -1,0 +1,25 @@
+.NewTodoContainer {
+    background-color: var(--clr-todo-bg);
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 1rem;
+    padding: .5rem;
+    border-radius: .25rem;
+}
+
+.NewTodoContainer input[type="text"] {
+    display: inline;
+    color: var(--clr-todo-text);
+    width: 90%;
+    margin-left: 1rem;
+}
+
+.NewTodoContainer input[type="text"]:focus {
+    outline: 1px solid var(--clr-todo-border);
+}
+
+@media screen and (max-width: 600px) {
+    .NewTodoContainer {
+        margin: 0 1rem;
+    }
+}

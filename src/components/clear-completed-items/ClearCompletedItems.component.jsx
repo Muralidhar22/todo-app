@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { TodoListContext } from "../../contexts/todoList.context";
 
-const ClearCompletedItems = () => {
+const ClearCompletedItems = ({ classname }) => {
     const { clearCompletedTodoItems } = useContext(TodoListContext)
     
     return(
-        <button onClick={
+        <button className={classname} onClick={
             () =>  clearCompletedTodoItems()
           }>Clear completed</button>
     )

@@ -1,0 +1,25 @@
+.todoItemContainer {
+    place-content: initial;
+    border-bottom: 1px solid var(--clr-todo-border);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: .5rem;
+}
+
+
+.todoText {
+    color: var(--clr-todo-text);
+}
+
+.todoCheckbox {
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+}
+
+input[type="checkbox"]:checked+.checkboxInputLabel {
+    color: var(--clr-completed-text);
+    text-decoration: line-through;
+}

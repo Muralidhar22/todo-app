@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
-import { TodoListContext } from "../contexts/todoList.context";
+import { TodoListContext } from "../../contexts/todoList.context";
+import styles from "./NewTodo.styles.module.css";
 
 const NewTodo = () => {
     const { addNewTodoItem } = useContext(TodoListContext)
@@ -16,16 +17,18 @@ const NewTodo = () => {
    }
 
     return(
-        <form onSubmit={onNewItemSubmit}>
+        <form onSubmit={onNewItemSubmit} className={styles.NewTodoContainer}>
             <label htmlFor="check-box">
                 <input type="checkbox" disabled />
             </label>
             <label htmlFor='new-todo'>
-                <input id="new-todo" 
+                <input id="new-todo"
+                    type="text" 
                     name="newTodoItem"
                     value={newTodo}
                     onChange={onChangeEventHandler}
-                    placeholder="Create a new todo..." />
+                    placeholder="Create a new todo..."
+                    style={{ maxWidth: "600px" }} />
             </label>
         </form>
 

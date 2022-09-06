@@ -1,25 +1,18 @@
-import { useContext } from "react";
-import { TodoListContext } from "../../contexts/todoList.context";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const TodoListCategories = () => {
-    // const { 
-    //     todoItems,
-    //     displayActiveTodoItems,
-    //     displayCompletedTodoItems
-    //  } = useContext(TodoListContext)
-
+const TodoListCategories = ({ classname }) => {
+    const activeStyle = { color: 'hsl(220, 98%, 61%)' };
     return(
-        <div className="todo-list-status">
-        <Link to="/">
+        <div className={classname}>
+        <NavLink to="/">
             All
-        </Link>
-        <Link to="/active-todo">
+        </NavLink>
+        <NavLink to="/active-todo">
             Active
-        </Link>
-        <Link to="/completed-todo">
+        </NavLink>
+        <NavLink to="/completed-todo">
             Completed
-        </Link>
+        </NavLink>
     </div>  
     )
 }

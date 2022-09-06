@@ -1,0 +1,39 @@
+.todoListFooter {
+    display: flex;
+    background-color: var(--clr-todo-bg);
+    position: relative;
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+.todoListCategories {
+    display: flex;
+    gap: 1rem;
+}
+
+.todoListCategories * {
+    text-decoration: none;
+    color: inherit;
+}
+
+.todoListCategories *:hover {
+    color: var(--clr-hover);
+}
+
+
+.clearCompleted:hover {
+    color: var(--clr-hover);
+}
+
+@media screen and (max-width: 500px) {
+    .todoListCategories {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        transform: translateY(150%);
+        position: absolute;
+        background-color: var(--clr-todo-bg);
+        padding: .5rem;
+        justify-content: center;
+    }
+}

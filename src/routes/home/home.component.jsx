@@ -1,19 +1,23 @@
 import { Outlet } from "react-router-dom";
-import ClearCompletedItems from "../../components/clear-completed-items/ClearCompletedItems.component";
 
-import Header from "../../components/Header.component"
-import NewTodo from "../../components/NewTodo.component";
-import TodoListCategories from "../../components/todo-list-categories/TodoListCategories.component";
+import Header from "../../components/header/Header.component"
+import NewTodo from "../../components/new-todo/NewTodo.component";
+import ToggleAllCheckbox from "../../components/toggle-all-checkbox/ToggleAllCheckbox.component";
+import TodoListFooter from "../../components/todo-list-footer/TodoListFooter.component";
 
 const Home = () => {
     return(
     <>
         <Header />
         <NewTodo />
-        <Outlet />
-        <TodoListCategories />
-        <ClearCompletedItems />
-        <p>Drag and drop to reorder list</p>
+        <ToggleAllCheckbox />
+        <main>
+            <Outlet />
+            <TodoListFooter />
+        </main>
+        <footer>
+            <p> Drag and drop to reorder list</p>
+        </footer>
     </>
     )
 }
