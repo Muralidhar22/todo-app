@@ -16,5 +16,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Drag and Drop items in list to reorder.
 - Delete items created.
 - Clear All completed Items.
+- Dark Mode/ Light Mode(Theme change)
 
 
