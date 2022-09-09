@@ -4,7 +4,7 @@
     gap: 1rem;
     margin-left: 70%;
     margin-top: 1rem;
-    padding: 1rem;
+    padding: .5rem;
     align-items: center;
     background: var(--clr-todo-bg);
     width: fit-content;

@@ -88,7 +88,7 @@ select {
   --clr-text: hsl(234, 11%, 52%);
   --clr-completed-text: hsl(233, 14%, 35%);
   --clr-todo-border: hsl(237, 14%, 26%);
-
+  --clr-box-shadow: hsla(280, 87%, 65%, .5);
 
   /* font size */
   --fs: 18px;
@@ -199,6 +199,7 @@ main {
   margin: 0 auto;
   max-width: 600px;
   background: var(--clr-todo-bg);
+  box-shadow: .15em .5em .75em .25em var(--clr-box-shadow);
 }
 
 @media screen and (max-width: 600px) {
@@ -209,7 +210,7 @@ main {
 
 footer {
   position: absolute;
-  bottom: 30%;
+  bottom: 0;
   left: 0;
   right: 0;
 }
