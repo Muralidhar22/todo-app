@@ -1,7 +1,6 @@
 .todoListFooter {
     display: flex;
     background-color: var(--clr-todo-bg);
-    position: relative;
     justify-content: space-between;
     padding-inline: .5rem;
     padding-bottom: .5rem;
