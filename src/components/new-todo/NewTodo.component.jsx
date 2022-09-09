@@ -21,7 +21,7 @@ const NewTodo = () => {
             <label htmlFor="check-box">
                 <input type="checkbox" disabled />
             </label>
-            <label htmlFor='new-todo'>
+            <label className="new-todo-label" htmlFor='new-todo'>
                 <input id="new-todo"
                     type="text" 
                     name="newTodoItem"

@@ -138,6 +138,7 @@ input[type="checkbox"]:checked {
 
 input[type="checkbox"]:checked::before {
   background-image: url(/src/images/icon-check.svg);
+  background-position: 50%;
   transform: scale(1);
 }
 
@@ -198,7 +199,7 @@ main {
   right: 0;
   margin: 0 auto;
   max-width: 600px;
-  background: var(--clr-todo-bg);
+  border-radius: .5rem;
   box-shadow: .15em .5em .75em .25em var(--clr-box-shadow);
 }
 
@@ -217,4 +218,11 @@ footer {
 
 footer p {
   text-align: center;
+}
+
+.todo-list {
+  padding: 1rem;
+  border-top-right-radius: .5rem;
+  border-top-left-radius: .5rem;
+  background: var(--clr-todo-bg);
 }
